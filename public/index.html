@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Call App</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📞 Video Call App</h1>
+            <div class="status" id="status">Disconnected</div>
+        </header>
+
+        <div class="main-content">
+            <!-- Room Section -->
+            <div class="room-section" id="roomSection">
+                <h2>Join or Create a Room</h2>
+                <input type="text" id="roomId" placeholder="Enter Room ID" />
+                <div class="button-group">
+                    <button id="createRoom" class="btn btn-primary">Create Room</button>
+                    <button id="joinRoom" class="btn btn-success">Join Room</button>
+                </div>
+                <div id="myRoomId" class="room-id-display"></div>
+            </div>
+
+            <!-- Video Section -->
+            <div class="video-section" id="videoSection" style="display: none;">
+                <!-- Room ID Display in Video Section -->
+                <div id="videoRoomId" class="video-room-id-display"></div>
+                
+                <div class="video-container">
+                    <div class="video-wrapper">
+                        <video id="remoteVideo" autoplay playsinline></video>
+                        <div class="video-label">Remote User</div>
+                    </div>
+                    <div class="video-wrapper local">
+                        <video id="localVideo" autoplay muted playsinline></video>
+                        <div class="video-label">You</div>
+                    </div>
+                </div>
+
+                <div class="controls">
+                    <button id="toggleVideo" class="control-btn video-on" title="Toggle Video">
+                        <span class="icon">📹</span>
+                    </button>
+                    <button id="toggleAudio" class="control-btn audio-on" title="Toggle Audio">
+                        <span class="icon">🎤</span>
+                    </button>
+                    <button id="endCall" class="control-btn end-call" title="End Call">
+                        <span class="icon">📞</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/client.js"></script>
+</body>
+</html>
